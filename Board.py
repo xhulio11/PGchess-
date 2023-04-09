@@ -8,7 +8,7 @@ BOARD_WIDTH = 1900
 BOARD_HEIGHT = 1000  
 SQUARE_WIDTH = BOARD_WIDTH/8
 SQUARE_HEIGHT = BOARD_HEIGHT/8
-RADIUS = SQUARE_WIDTH/2 - 10
+RADIUS = (SQUARE_WIDTH + SQUARE_HEIGHT)/4 - 10
 CIRCLE_WIDTH = 0
 PIECE_OFFSET = 30 
 FPS = 15
@@ -99,10 +99,17 @@ class Board():
                     BOARD_HEIGHT = event.h
                     global BOARD_WIDTH
                     BOARD_WIDTH = event.w
+                    global RADIUS 
+                    global SQUARE_HEIGHT
+                    global SQUARE_WIDTH
+                    SQUARE_WIDTH = BOARD_WIDTH/8
+                    SQUARE_HEIGHT = BOARD_HEIGHT/8
+                    RADIUS = (SQUARE_WIDTH + SQUARE_HEIGHT)/4 - 10
 
                     self.load_assets()    
                     self.screen = pygame.display.set_mode((BOARD_WIDTH, BOARD_HEIGHT), pygame.RESIZABLE)
                     self.draw_board()
+
 
                 
                 elif event.type == pygame.MOUSEBUTTONDOWN:
