@@ -95,13 +95,10 @@ class Board():
                     pygame.quit()
 
                 elif event.type == pygame.VIDEORESIZE:
-                    global BOARD_HEIGHT 
+                    # Changing global variables based on the resized screen 
+                    global BOARD_HEIGHT, BOARD_WIDTH, RADIUS, SQUARE_HEIGHT, SQUARE_WIDTH 
                     BOARD_HEIGHT = event.h
-                    global BOARD_WIDTH
                     BOARD_WIDTH = event.w
-                    global RADIUS 
-                    global SQUARE_HEIGHT
-                    global SQUARE_WIDTH
                     SQUARE_WIDTH = BOARD_WIDTH/8
                     SQUARE_HEIGHT = BOARD_HEIGHT/8
                     RADIUS = (SQUARE_WIDTH + SQUARE_HEIGHT)/4 - 10
